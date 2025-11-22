@@ -1,0 +1,44 @@
+<p>{{ getTitle() }}</p>
+<ul>
+  @for (teacher of teacherList; track teacher) {
+  <li>{{ teacher }}</li>
+  }
+</ul>
+
+@if (status === "dong") {
+<div>DONG</div>
+} @else {
+<div>1 dong</div>
+} @switch (status) { @case ("dong") {
+<div>CASE DONG</div>
+} @case ("yen") {
+<div>CASE YEN</div>
+} }
+
+<div [ariaLabel]="status">arial label</div>
+<button (click)="handlerOnClickEvent()" class="bg-red-500 p-2">Click bait</button>
+<div [ngClass]="status === 'dong' ? 'bg-red-400' : 'bg-white'">1213</div>
+
+<parent>123</parent>
+
+<input [(ngModel)]="username" (keydown.enter)="handlerOnEnter()" />
+<p>Xin chào, {{ username | uppercase | lowercase | summary }}</p>
+<p>today is {{ date | date }}</p>
+
+<div>
+  Create post:
+  <input [(ngModel)]="detail" />
+  <div>
+    <input type="file" [(ngModel)]="images" />
+  </div>
+
+  <button (click)="confirm()">Confirm</button>
+</div>
+
+@if (check) {
+<div>
+  postCreated
+  <input disabled [value]="result.detail" />
+  <img [src]="result.image" />
+</div>
+}
